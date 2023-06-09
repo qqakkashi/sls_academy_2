@@ -1,5 +1,5 @@
 const wordsByNameSort = (array) => {
-  return array.filter((item) => +item !== +item / 1).sort();
+  return array.filter((item) => +item !== +item).sort();
 };
 
 module.exports = wordsByNameSort;
