@@ -1,13 +1,6 @@
 const onlyUniqueWords = (array) => {
   const words = array.filter((item) => +item !== +item);
-  let uniqueWords = [];
-  const sortedWords = words.map((word) => {
-    if (uniqueWords.includes(word)) {
-      return;
-    }
-    uniqueWords.push(word);
-  });
-  return uniqueWords;
+  return [...new Set(words)];
 };
 
 module.exports = onlyUniqueWords;
