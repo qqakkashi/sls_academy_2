@@ -1,12 +1,15 @@
 const { Command } = require("commander");
 const program = new Command();
 const bot = require("./src/telegram-bot");
+// solve the error Error 504 EPARSE: Error parsing response by adding this variable to the env
 process.env["NTBA_FIX_350"] = 1;
 
-const chat_id = "500264725";
+// get chat_id from env
+const chat_id = process.env["CHAT_ID"];
 
 program.version("1.0");
 
+// command for send messages
 program
   .command("message")
   .argument("<message>")
@@ -17,6 +20,7 @@ program
     process.exit();
   });
 
+// command for send photos
 program
   .command("photo")
   .argument("<path>")
@@ -29,4 +33,5 @@ program
     process.exit();
   });
 
+// parsing argv
 program.parse();
